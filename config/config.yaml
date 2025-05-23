@@ -1,0 +1,178 @@
+# 数据库配置
+database:
+  host: 127.0.0.1
+  user: visitor
+  password: pf123456
+  database: zpsj
+  charset: utf8mb4
+
+# 职位列表
+positions:
+  - 土建工程师
+  - 结构工程师
+  - 土木工程师
+  - ICT工程师
+  - ICT技术支持
+  - ICT项目经理
+  - ICT产品经理
+  - 5G工程师
+  - ICT
+  - 网络工程师
+  - 通信工程师
+  - 云计算工程师
+  - 大数据分析师
+  - ICT测试工程师
+  - 系统工程师
+  - 解决方案架构师
+  - 系统集成工程师
+  - 网络与通信
+  - 云计算与数据中心
+  - 软件开发
+  - 物联网/智能硬件
+
+# 日志配置
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  log_dir: logs
+  file_prefix: analysis
+  encoding: utf-8
+
+
+#数据文件路径配置
+data_files:
+  2022: 'data/2022年--ICT相关专业招聘数据.csv'   # 2022年数据路径
+  2023:
+    - 'data/【新新软件工程师】-前程无忧.xlsx'     # 2023年多个文件用列表存储
+    - 'data/【新新硬件工程师】-前程无忧.xlsx'
+  2024: 'data/2024ICT数据.csv'
+  2025: 'data/raw_data.jsonl'
+
+# 图片路径配置
+images:
+  wordcloud:
+    2022: "result/wordcloud/2022_wordcloud.png"
+    2023: "result/wordcloud/2023_wordcloud.png"
+    2024: "result/wordcloud/2024_wordcloud.png"
+    2025: "result/wordcloud/2025_wordcloud.png"
+    2022-2025: "result/wordcloud/2022-2025_wordcloud.png"
+  heatmap:
+    2022: "data/html/2022.jpg"
+    2023: "data/html/2023.jpg"
+    2024: "data/html/2024.jpg"
+    2025: "data/html/2025.jpg"
+    2022-2025: "data/html/2022-2025.jpg"
+  salary_distribution:
+    2022: "result/salary/2022_salary_distribution.png"
+    2023: "result/salary/2023_salary_distribution.png"
+    2024: "result/salary/2024_salary_distribution.png"
+    2025: "result/salary/2025_salary_distribution.png"
+    2022-2025: "result/salary/2022-2025_salary_distribution.png"
+
+
+# **新增数据分析模块配置**
+data_analyzer:
+  database:
+    host: 127.0.0.1
+    user: visitor
+    password: pf123456
+    database: zpsj
+    charset: utf8mb4
+
+
+  # 词云图配置
+  wordcloud:
+    stop_words:  # 需过滤的无效词语
+      - 的
+      - 是
+      - 和
+      - 在
+      - 工作
+      - xa0
+      - 相关
+      - 能力
+      - 要求
+      - 客户
+      - 技能
+      - 行业
+      - 标签
+      - 公司
+      - 熟悉
+      - 优先
+      - 进行
+      - 需求
+      - 销售
+      - 完成
+      - ...
+      - 以上
+      - 岗位职责
+      - 团队
+      - 任职
+      - 本科
+      - 具备
+      - 良好
+      - 以上学历
+      - 维护
+      - 业务
+      - 具有
+      - 五险
+      - 一金
+      - 问题
+      - 设备
+      - 补贴
+      - 使用
+      - 方案
+      - 参与
+      - 岗位
+      - 大专
+      - 平台
+      - 实施
+      - 提供
+      - 职能
+      - 类别
+      - 了解
+      - 根据
+      - 员工
+      - 制定
+      - 年终奖金
+      - 解决
+      - 定期
+      - 文档
+      - 能够
+      - 包括
+      - 处理
+      - 确保
+      - 福利
+      - 绩效奖金
+      - 以及
+      - 负责
+      - 旅游
+      - 其他
+    max_words: 100  # 词云最大词语数量
+    font_path: simhei.ttf  # 字体路径
+    image_save_path: result/wordcloud  # 图片保存路径
+    width: 800
+    height: 600
+
+  # 热力图配置
+  heatmap:
+    pieces:  # 分段颜色配置
+      - min: 0
+        max: 49
+        label: "0~49人"
+        color: "#F5DEB3"
+      - min: 50
+        max: 199
+        label: "50~199人"
+        color: "#F4A460"
+      - min: 200
+        max: 500
+        label: "200~500人"
+        color: "#D2B48C"
+      - min: 501
+        max: 1999
+        label: "501~1999人"
+        color: "#D2691E"
+      - min: 2000
+        label: "2000以上"
+        color: "#B22222"
