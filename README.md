@@ -137,5 +137,5 @@ python main.py
 3. GUI界面首次加载图表可能较慢，需等待数据处理完成。
 
 ## 八、联系方式
-- **邮箱**：your-email@example.com
+- **邮箱**：pfabcdef@foxmail.com
 - **问题反馈**：在项目仓库提交Issue。
